@@ -1,12 +1,12 @@
-import logo from './logo.svg';
-import './App.css';
-import Counter from './components/counter/counter-index';
 
-function App() {
+import './App.css';
+import Main from "./components/counter/main";
+
+function App() {  
   return (
     <div className="App">
       <header className="App-header">
-        <Counter/>
+        <Main />
       </header>
     </div>
   );

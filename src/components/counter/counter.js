@@ -1,13 +1,13 @@
-
-import React, { useState } from "react";
+import React from "react";
 
 const Counter = (props) => {
-
-//   const handleClick = () => setCounter(counter * 2);
+    const handleClick = () => props.onClicks(props.increment);
 
   return (
     <div>
-      <button onClick={props.onClicks}>Times 2</button>
+      <button onClick={handleClick}>
+        +{props.increment}
+      </button>
     </div>
   );
 };

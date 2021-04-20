@@ -9,9 +9,17 @@ const Form = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const response = await axios.get(
-      `https://api.github.com/users/${state.userName}`
-    );
+    const response = await axios
+      .get(`https://api.github.com/users/${state.userName}`)
+      .catch((err) => {
+        alert(
+          `Ooopsie! ${state.userName.toUpperCase()}'s Account doesn't exist. Please Try again`
+        );
+        return err;
+      });
+    if (response.status === 200) {
+      alert(`${state.userName.toUpperCase()}'s Account Found, Yeeey!`);
+    }
     props.onSubmit(response.data);
     setState({ userName: "" });
   };

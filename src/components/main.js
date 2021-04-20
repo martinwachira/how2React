@@ -4,36 +4,42 @@ import Display from "./counter/display";
 import CardList from "./Card/cardList";
 import Form from "./Card/form";
 
-const testRecords = [
-  {
-    name: "Martin Wachira",
-    avatar_url: "https://avatars.githubusercontent.com/u/60017194?v=4",
-    company: "Poneahealthltd",
-  },
-  {
-    name: "Dennis Henry",
-    avatar_url: "https://avatars.githubusercontent.com/u/6372787?v=4",
-    company: "Techcraft",
-  },
-  {
-    name: "Muriuki",
-    avatar_url: "https://avatars.githubusercontent.com/u/7903958?v=4",
-    company: "His company",
-  },
-  {
-    name: "Lucy",
-    avatar_url: "https://avatars.githubusercontent.com/u/1666345?v=4",
-    company: "Unknown comp",
-  },
-];
+// const testRecords = [
+//   {
+//     name: "Martin Wachira",
+//     avatar_url: "https://avatars.githubusercontent.com/u/60017194?v=4",
+//     company: "Poneahealthltd",
+//   },
+//   {
+//     name: "Dennis Henry",
+//     avatar_url: "https://avatars.githubusercontent.com/u/6372787?v=4",
+//     company: "Techcraft",
+//   },
+//   {
+//     name: "Muriuki",
+//     avatar_url: "https://avatars.githubusercontent.com/u/7903958?v=4",
+//     company: "His company",
+//   },
+//   {
+//     name: "Lucy",
+//     avatar_url: "https://avatars.githubusercontent.com/u/1666345?v=4",
+//     company: "Unknown comp",
+//   },
+// ];
 
 const Main = () => {
-
   const [counter, setCounter] = useState(0);
   const incrementsCounter = (incValue) => setCounter(counter + incValue);
   const [state, setState] = useState({
-    profiles: testRecords
-  })  
+    profiles: [],
+  });
+
+  const addNewAccount = (profileData) => {
+    setState((prevState) => ({
+      profiles: [...prevState.profiles, profileData],
+    }));
+    console.log("Main", profileData);
+  };
 
   return (
     <>
@@ -60,9 +66,9 @@ const Main = () => {
           color: "black",
         }}
       >
-        <Form />
-        <br/>
-        <CardList profiles={state.profiles}/>
+        <Form onSubmit={addNewAccount} />
+        <hr />
+        <CardList profiles={state.profiles} />
       </div>
     </>
   );

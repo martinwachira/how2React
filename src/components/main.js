@@ -27,8 +27,13 @@ const testRecords = [
 ];
 
 const Main = () => {
+
   const [counter, setCounter] = useState(0);
   const incrementsCounter = (incValue) => setCounter(counter + incValue);
+  const [state, setState] = useState({
+    profiles: testRecords
+  })  
+
   return (
     <>
       <div
@@ -54,7 +59,7 @@ const Main = () => {
           color: "black",
         }}
       >
-        <CardList profiles={testRecords}/>
+        <CardList profiles={state.profiles}/>
       </div>
     </>
   );

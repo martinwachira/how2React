@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Counter from "./counter/counter";
 import Display from "./counter/display";
-import Card from "./Card/card";
+import CardList from "./Card/cardList";
 
 const Main = () => {
   const [counter, setCounter] = useState(0);
@@ -31,7 +31,7 @@ const Main = () => {
           color: "black",
         }}
       >
-        <Card />
+        <CardList />
       </div>
     </>
   );

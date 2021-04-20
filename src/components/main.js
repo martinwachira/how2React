@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Counter from "./counter/counter";
 import Display from "./counter/display";
 import CardList from "./Card/cardList";
+import Form from "./Card/form";
 
 const testRecords = [
   {
@@ -59,6 +60,8 @@ const Main = () => {
           color: "black",
         }}
       >
+        <Form />
+        <br/>
         <CardList profiles={state.profiles}/>
       </div>
     </>
